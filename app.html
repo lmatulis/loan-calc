@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>App Name Coding Challenge by Luke Matulis</title>
+    <title>Loan Calulator: Coding Challenge by Luke Matulis</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,7 +43,7 @@
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html">
                     <img src="/img/myLogos/logo-light.png" width="40" alt="" class="d-inline-block align-text-center">
-                    APP NAME HERE
+                    Loan Calulator
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,11 +76,50 @@
 
     <main>
         <div class="container mt-5">
-            <h1>APP UI Here</h1>
-            <input id="message" placeholder="Message" class="form-control" type="text">
-            <button id="btn-submit" type="button" class="btn btn-primary mt-2">Display Message</button>
-            <div class="alert alert-danger mt-5 p4 d-none" role="alert" id="alertBox">
-
+            <div class="row border-bottom">
+                <div class="col-12 col-lg-4 border-end">
+                    <form id="loanData">
+                        <div class="row row-cols-1 gy-3">
+                            <div class="col">
+                                <label for="loanAmount" class="form-label">Loan Amount</label>
+                                <input type="number" min="1" class="form-control" id="loanAmount" name="loanAmount" placeholder="$ Amount" required>
+                            </div>
+                            <div class="col">
+                                <label for="termMonths" class="form-label">Term (Months)</label>
+                                <input type="number" class="form-control" id="termMonths" name="termMonths" placeholder="Months" required>
+                            </div>
+                            <div class="col">
+                                <label for="interestRate" class="form-label">Interest Rate</label>
+                                <input type="number" min="0" max="100" class="form-control" id="interestRate" name="interestRate" placeholder="% Rate" required>
+                            </div>
+                            <div class="col text-end">
+                                <button id="btnCalculate" type="button" class="btn btn-primary" onclick="getValues()">Calculate</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-12 col-lg-8 border-start">
+                    <div class="row row-cols-1 gy-4">
+                        <div class="col text-center mt-5">
+                            <h2>Your Monthly Payment</h2>
+                        </div>
+                        <div class="col text-center">
+                            <h3 id="monthlyPayment"></h3>
+                        </div>
+                        <div class="row row-cols-2 gy-3 mb-5">
+                            <div class="col fw-bold fs-5">
+                                <div>Total Principal</div>
+                                <div>Total Interest</div>
+                                <div>Total Cost</div>
+                            </div>
+                            <div class="col fw-bold fs-5 text-end">
+                                <div id="totalPrincipal"></div>
+                                <div id="totalInterest"></div>
+                                <div id="totalCost"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -115,7 +154,7 @@
     <script src="/js/site.js"></script>
 
     <script>
-        document.getElementById("btn-submit").addEventListener("click", getValues2);
+        document.getElementById("btnCalculate").addEventListener("click", getValues);
     </script>
 
 </body>
