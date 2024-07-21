@@ -77,28 +77,36 @@
     <main>
         <div class="container mt-5">
             <div class="row border-bottom">
-                <div class="col-12 col-lg-4 border-end">
+                <div class="col-12 col-lg-4 border pb-3">
                     <form id="loanData">
                         <div class="row row-cols-1 gy-3">
                             <div class="col">
                                 <label for="loanAmount" class="form-label">Loan Amount</label>
-                                <input type="number" min="1" class="form-control" id="loanAmount" name="loanAmount" placeholder="$ Amount" required>
+                                <input type="number" min="1" class="form-control" id="loanAmount" name="loanAmount"
+                                    placeholder="$ Amount" required>
                             </div>
                             <div class="col">
                                 <label for="termMonths" class="form-label">Term (Months)</label>
-                                <input type="number" class="form-control" id="termMonths" name="termMonths" placeholder="Months" required>
+                                <input type="number" class="form-control" id="termMonths" name="termMonths"
+                                    placeholder="Months" required>
                             </div>
                             <div class="col">
                                 <label for="interestRate" class="form-label">Interest Rate</label>
-                                <input type="number" min="0" max="100" class="form-control" id="interestRate" name="interestRate" placeholder="% Rate" required>
+                                <div class="input-group">
+                                    <input type="number" min="0" max="100" step="0.1" class="form-control"
+                                        id="interestRate" name="interestRate" placeholder="% Rate" required>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col text-end">
-                                <button id="btnCalculate" type="button" class="btn btn-primary" onclick="getValues()">Calculate</button>
+                                <button id="btnCalculate" type="button" class="btn btn-primary">Calculate</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-lg-8 border-start">
+                <div class="col-12 col-lg-8 border">
                     <div class="row row-cols-1 gy-4">
                         <div class="col text-center mt-5">
                             <h2>Your Monthly Payment</h2>
