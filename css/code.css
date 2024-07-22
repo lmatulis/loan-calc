@@ -1,0 +1,8 @@
+:root {
+    --lm-subtitle-font: 'Fira Sans', sans-serif;
+}
+
+h5 {
+    font-family: var(--lm-subtitle-font);
+    text-transform: lowercase;
+}
