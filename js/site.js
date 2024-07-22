@@ -37,7 +37,7 @@ function getValues() {
 
     } else {
         // Alert if inputs are not valid
-        alert("Only numbers allowed. Please enter numbers into the fields");
+        alert("Only integers allowed. Please enter an integer into the fields");
     }
 }
 
