@@ -12,17 +12,15 @@ function getValues() {
     let interestRate = document.getElementById("interestRate").value;
 
     // Remove non-digit characters
-    loanAmount.replace(/\D/g, '');
     termMonths.replace(/\D/g, '');
-    interestRate.replace(/\D/g, '');
 
     // Parse values to integers
     loanAmount = parseInt(loanAmount);
     termMonths = parseInt(termMonths);
-    interestRate = parseInt(interestRate);
+    interestRate = parseFloat(interestRate);
 
     // Check if inputs are valid numbers
-    if(Number.isInteger(loanAmount) && Number.isInteger(termMonths) && Number.isInteger(interestRate)) {
+    if(isFloat(loanAmount) && Number.isInteger(termMonths) && isFloat(interestRate)) {
 
         // Calculate monthly payments, total interest, and total cost
         let TMP = calculateTotalMonthlyPayments(loanAmount, interestRate, termMonths);
@@ -64,7 +62,7 @@ function displayData(loanObjects, TMP, loanAmount, totalInterest, totalCost) {
         loanTableRow.querySelector("[data-principal]").textContent = USDformat.format(currentMonth.principal);
         loanTableRow.querySelector("[data-interest]").textContent = USDformat.format(currentMonth.interest);
         loanTableRow.querySelector("[data-totalInterest]").textContent = USDformat.format(currentMonth.totalInterest);
-        loanTableRow.querySelector("[data-balance]").textContent = USDformat.format(currentMonth.balance);
+        loanTableRow.querySelector("[data-balance]").textContent = USDformat.format(Math.abs(currentMonth.balance));
 
         // Add to HTML
         loanTableBody.appendChild(loanTableRow);
@@ -163,4 +161,15 @@ function calculateTotalInterest(loanAmount, interestRate, termMonths) {
 function calculateTotalCost(totalInterest, loanAmount) {
     let totalCost = totalInterest + loanAmount;
     return totalCost;
+}
+
+// Function to see if interest rate is either a float or an integer
+function isFloat(number) {
+    if(Number(number) === number && number % 1 !== 0) {
+        return true;
+    } else if(Number.isInteger(number)) { 
+        return true;
+    } else {
+        return false;
+    }
 }
