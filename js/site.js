@@ -15,7 +15,7 @@ function getValues() {
     termMonths.replace(/\D/g, '');
 
     // Parse values to integers
-    loanAmount = parseInt(loanAmount);
+    loanAmount = parseFloat(loanAmount);
     termMonths = parseInt(termMonths);
     interestRate = parseFloat(interestRate);
 
